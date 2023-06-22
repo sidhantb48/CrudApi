@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const Product = () => {
   const [products, setProducts] = useState([]);
@@ -30,33 +30,63 @@ const Product = () => {
   const addProduct = async (e) => {
     e.preventDefault();
 
-    // ...same as before...
+    if (!productName || !categoryId) {
+      alert("Please fill in all fields");
+      return;
+    }
 
-    if (productId === "") {
-      // Create new product
-      console.log("Product added successfully");
-    } else {
-      // Edit existing product
-      console.log("Product edited successfully");
+    try {
+      const response = await fetch("https://fakestoreapi.com/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          title: productName,
+          category: categoryId,
+        }),
+      });
+
+      if (response.ok) {
+        setProductName("");
+        setCategoryId("");
+        fetchProducts();
+        console.log("Product added successfully");
+      } else {
+        console.log("Failed to add product");
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
 
   const deleteProduct = async (productId) => {
     try {
-      await fetch(`https://fakestoreapi.com/products/${productId}`, {
-        method: "DELETE",
-      });
+      const response = await fetch(
+        `https://fakestoreapi.com/products/${productId}`,
+        {
+          method: "DELETE",
+        }
+      );
 
-      // ...same as before...
-
-      console.log("Product deleted successfully");
+      if (response.ok) {
+        fetchProducts();
+        console.log("Product deleted successfully");
+      } else {
+        console.log("Failed to delete product");
+      }
     } catch (error) {
       console.error(error);
     }
   };
 
   const searchProducts = (e) => {
-    setSearchKeyword(e.target.value);
+    const keyword = e.target.value.toLowerCase();
+    const filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(keyword)
+    );
+    setFilteredProducts(filtered);
+    setSearchKeyword(keyword);
   };
 
   const filterProducts = () => {
@@ -64,7 +94,7 @@ const Product = () => {
 
     if (searchKeyword) {
       filtered = filtered.filter((product) =>
-        product.title.toLowerCase().includes(searchKeyword.toLowerCase())
+        product.title.toLowerCase().includes(searchKeyword)
       );
     }
 
@@ -81,7 +111,18 @@ const Product = () => {
     <div>
       <h2>Products</h2>
       <form onSubmit={addProduct}>
-        {/* ...input fields for adding/editing a product... */}
+        <input
+          type="text"
+          placeholder="Product Name"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Category ID"
+          value={categoryId}
+          onChange={(e) => setCategoryId(e.target.value)}
+        />
         <button type="submit">Add Product</button>
       </form>
       <div>

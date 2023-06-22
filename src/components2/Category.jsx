@@ -1,102 +1,43 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const Category = () => {
   const [categories, setCategories] = useState([]);
   const [categoryName, setCategoryName] = useState("");
   const [description, setDescription] = useState("");
-  const [status, setStatus] = useState("");
 
   useEffect(() => {
     fetchCategories();
   }, []);
 
   const fetchCategories = async () => {
-    try {
-      const response = await fetch(
-        "https://fakestoreapi.com/products/categories"
-      );
-      const data = await response.json();
-      setCategories(data);
-    } catch (error) {
-      console.error(error);
-    }
+    // Mock implementation for fetching categories
+    const mockCategories = ["Electronics", "Clothing", "Books"];
+    setCategories(mockCategories);
   };
 
-  const addCategory = async (e) => {
+  const addCategory = (e) => {
     e.preventDefault();
 
-    if (!categoryName || !description || !status) {
+    if (!categoryName || !description) {
       alert("Please fill in all fields");
       return;
     }
 
-    try {
-      if (categoryName === "") {
-        // Create new category
-        const response = await fetch(
-          "https://fakestoreapi.com/products/categories",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              category_name: categoryName,
-              description: description,
-              status: status,
-            }),
-          }
-        );
+    // Mock implementation for adding a category
+    setCategories((prevCategories) => [...prevCategories, categoryName]);
 
-        setCategoryName("");
-        setDescription("");
-        setStatus("");
-
-        fetchCategories();
-        console.log(response.data);
-      } else {
-        // Edit existing category
-        const response = await fetch(
-          `https://fakestoreapi.com/products/categories/${categoryName}`,
-          {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              category_name: categoryName,
-              description: description,
-              status: status,
-            }),
-          }
-        );
-
-        setCategoryName("");
-        setDescription("");
-        setStatus("");
-
-        fetchCategories();
-        console.log(response.data);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    setCategoryName("");
+    setDescription("");
+    console.log("Category added successfully");
   };
 
-  const deleteCategory = async (categoryName) => {
-    try {
-      const response = await fetch(
-        `https://fakestoreapi.com/products/categories/${categoryName}`,
-        {
-          method: "DELETE",
-        }
-      );
+  const deleteCategory = (categoryName) => {
+    // Mock implementation for deleting a category
+    setCategories((prevCategories) =>
+      prevCategories.filter((category) => category !== categoryName)
+    );
 
-      fetchCategories();
-      console.log(response.data);
-    } catch (error) {
-      console.error(error);
-    }
+    console.log("Category deleted successfully");
   };
 
   return (
@@ -114,12 +55,6 @@ const Category = () => {
           placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Status"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
         />
         <button type="submit">Add Category</button>
       </form>
