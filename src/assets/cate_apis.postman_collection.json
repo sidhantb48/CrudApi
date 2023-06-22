@@ -1,0 +1,405 @@
+{
+	"info": {
+		"_postman_id": "dd7126ec-470d-4e7a-95bc-80a82cdb6cf6",
+		"name": "cate_apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "category_insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_name",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "status",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/category_insert.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"category_insert.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category_update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "category_name",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "status",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/category_update.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"category_update.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category_get_single_data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/category_get_data.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"category_get_data.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category_delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/category_delete.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"category_delete.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "category_all_data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "category_name",
+						"value": "sss",
+						"type": "default"
+					},
+					{
+						"key": "description",
+						"value": "111111",
+						"type": "default"
+					},
+					{
+						"key": "status",
+						"value": "1",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://icreatewebtech.com/category_apis/category_all_data.php",
+					"protocol": "https",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"category_all_data.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product_insert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cat_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "product_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "manufacture",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "publish_date",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/product_insert.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"product_insert.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product_update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "cat_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "product_name",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "manufacture",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "publish_date",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/product_update.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"product_update.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product_get_single_data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/product_get_data.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"product_get_data.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product_delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/product_delete.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"product_delete.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product_all_data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://icreatewebtech.com/category_apis/product_all_data.php",
+					"protocol": "http",
+					"host": [
+						"icreatewebtech",
+						"com"
+					],
+					"path": [
+						"category_apis",
+						"product_all_data.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

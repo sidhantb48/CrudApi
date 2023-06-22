@@ -1,0 +1,91 @@
+/* App.css */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+form input,
+form select {
+  margin-right: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"],
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Category.css */
+.category-form {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.category-form input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* Product.css */
+.product-search {
+  margin-bottom: 20px;
+}
+
+.product-search input {
+  margin-right: 10px;
+}
+
+.product-list {
+  margin-top: 20px;
+}
+
+.product-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
